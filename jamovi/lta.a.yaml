@@ -1,0 +1,115 @@
+---
+name:  lta
+title: Latent Transition Analysis
+menuGroup: snowLatent
+version: '1.0.0'
+jas: '1.2'
+
+options:
+    - name: data
+      type: Data
+
+    - name: factors
+      title: Factors
+      type: Array
+      default:
+        - label: L1[2]
+          vars: []
+      template:
+          type: Group
+          elements:
+            - name: label
+              type: String
+            - name: vars
+              type: Variables
+              suggested:
+                - nominal
+                - ordinal
+              permitted:
+                - factor
+      description:
+          R: >
+            a list containing named lists that define the `label` of
+            the factor and the `vars` that belong to that factor
+
+    - name: covs
+      title: Covariates(Optional)
+      type: Variables
+      suggested:
+         - nominal
+         - continuous
+      permitted:
+        - factor
+        - numeric
+
+    - name: regform
+      title: 'Regression formula'
+      type: String
+      default: 'L1 ~ SEX+RACE'
+
+    - name: impu
+      title: 'Imputation'
+      type: List
+      options:
+        - title: 'modal'
+          name:  'modal'
+        - title: 'prob'
+          name:  'prob'
+      default: 'modal'    
+  
+    - name: method
+      title: 'Method'
+      type: List
+      options:
+        - title: 'naive'
+          name:  'naive'
+        - title: 'BCH'
+          name:  'BCH'
+        - title: 'ML'
+          name:  'ML'  
+      default: 'naive'
+
+    - name: cons
+      title: 'Constraints'
+      type: String
+      default: 'L1,L2,L3'
+ 
+    - name: member
+      title: Class membership
+      type: Output   
+
+    - name: post
+      title: Posterior probability 
+      type: Output  
+      
+    - name: par
+      title: 'Estimated parameters'
+      type: Bool
+      default: FALSE
+
+    - name: reg
+      title: 'Coefficients'
+      type: Bool
+      default: FALSE
+
+    - name: par2
+      title: 'LTA(with non-invariant model)'
+      type: Bool
+      default: FALSE
+
+    - name: par3
+      title: 'LTA(with measurement invariance)'
+      type: Bool
+      default: FALSE
+
+    - name: fit
+      title: 'Goodness of fit'
+      type: Bool
+      default: FALSE
+
+    - name: fit1
+      title: 'Chi-squared test'
+      type: Bool
+      default: FALSE
+
+...

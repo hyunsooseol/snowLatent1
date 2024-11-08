@@ -7,7 +7,7 @@
         `author`="Seol, H.", 
         `year`=2024, 
         `title`="snowLatent: Latent Class Analysis for jamovi", 
-        `publisher`="(Version 2.4.3) [jamovi module]. URL https://github.com/hyunsooseol/snowLatent", 
+        `publisher`="(Version 2.5.1) [jamovi module]. URL https://github.com/hyunsooseol/snowLatent", 
         `url`="https://github.com/hyunsooseol/snowLatent"), 
     `glca`=list(
         `type`="software", 
@@ -15,6 +15,12 @@
         `year`=2021, 
         `title`="glca: An R Package for Multiple-Group Latent Class Analysis", 
         `publisher`="(Version 1.3.3) [R package]. URL https://CRAN.R-project.org/package=glca"), 
+    `slca`=list(
+        `type`="software", 
+        `author`="Kim, Y., Chung, H.", 
+        `year`=2024, 
+        `title`="slca: Structural Modeling for Multiple Latent Class Variables", 
+        `publisher`="(Version 1.0.0) [R package]. URL https://CRAN.R-project.org/package=slca"), 
     `wordcloud`=list(
         `type`="software", 
         `author`="Fellows, I.", 

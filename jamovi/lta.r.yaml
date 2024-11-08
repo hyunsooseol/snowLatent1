@@ -1,0 +1,151 @@
+---
+name:  lta
+title: Latent Transition Analysis
+jrs:   '1.1'
+refs: snowLatent
+items:
+    - name: instructions
+      title: 'Instructions'
+      type: Html
+      visible: True
+
+    - name: post
+      title: 'Posterior probabilities'
+      type: Output
+      measureType: continuous
+      clearWith:
+        - factors
+        - vars
+        - nc
+  
+    - name: fit
+      title: 'Goodness of fit'
+      type: Table
+      rows: 1
+      visible: (fit)
+      refs: slca 
+      clearWith:
+        - factors
+        - vars
+        - nc
+
+      columns:
+        - name: class
+          title: Class
+          type: integer
+        - name: df
+          title: df
+          type: number
+        - name: loglik
+          title: Log-likelihood
+          type: number
+        - name: aic
+          title: AIC
+          type: number
+        - name: bic
+          title: BIC 
+          type: number
+        - name: gsq
+          title: G² 
+          type: number
+
+    - name: fit1
+      title: 'Testing for measurement invariance '
+      type: Table
+      visible: (fit1)
+      refs: slca
+      clearWith:
+        - factors
+        - vars
+        - nc
+
+      columns:
+        - name: name
+          title: ''
+          type: 'text'
+          content: ($key)
+        - name: df
+          title: df
+          type: number
+        - name: loglik
+          title: Log-likelihood
+          type: number
+        - name: aic
+          title: AIC 
+          type: number 
+        - name: bic
+          title: BIC 
+          type: number
+        - name: gsq
+          title: G² 
+          type: number 
+        - name: res
+          title: Residual df 
+          type: number           
+        - name: p
+          title: p 
+          type: number
+          format: zto,pvalue
+
+    - name: reg
+      title: 'Logistic regression'
+      type: Table
+      visible: (reg)
+      refs: slca
+      clearWith:
+        - factors
+        - covs
+        - nc
+        - method
+        - impu
+        - regform
+
+      columns:
+        - name: name
+          title: ''
+          type: 'text'
+          content: ($key)
+        - name: cla
+          title: Class
+          type: 'text'
+        - name: va
+          title: Variable
+          type: 'text'
+        - name: co
+          title: Coefficient 
+          type: number
+        - name: se
+          title: Std.error 
+          type: number
+        - name: wald
+          title: Wald 
+          type: number
+        - name: p
+          title: p 
+          type: number
+          format: zto,pvalue
+
+    - name: member
+      title: 'Class membership'
+      type: Output
+      measureType: nominal
+      varTitle: Membership
+      clearWith:
+        - factors
+        - vars
+        - nc
+
+    - name:  text1
+      title: 'LCA: Estimated parameters(Only one latent class variable)'
+      type:  Preformatted
+      refs: slca
+
+    - name:  text3
+      title: 'LTA with non-invariant model'
+      type:  Preformatted
+
+    - name:  text4
+      title: 'LTA with measurement invariance'
+      type:  Preformatted
+
+...
