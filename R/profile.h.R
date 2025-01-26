@@ -15,7 +15,8 @@ profileOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             width = 500,
             height = 500,
             width1 = 500,
-            height1 = 500, ...) {
+            height1 = 500,
+            color = NULL, ...) {
 
             super$initialize(
                 package="snowLatent",
@@ -74,6 +75,14 @@ profileOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 "height1",
                 height1,
                 default=500)
+            private$..color <- jmvcore::OptionList$new(
+                "color",
+                color,
+                options=list(
+                    "jmv",
+                    "Dark2",
+                    "Set1",
+                    "Accent"))
 
             self$.addOption(private$..vars)
             self$.addOption(private$..group)
@@ -85,6 +94,7 @@ profileOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             self$.addOption(private$..height)
             self$.addOption(private$..width1)
             self$.addOption(private$..height1)
+            self$.addOption(private$..color)
         }),
     active = list(
         vars = function() private$..vars$value,
@@ -96,7 +106,8 @@ profileOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
         width = function() private$..width$value,
         height = function() private$..height$value,
         width1 = function() private$..width1$value,
-        height1 = function() private$..height1$value),
+        height1 = function() private$..height1$value,
+        color = function() private$..color$value),
     private = list(
         ..vars = NA,
         ..group = NA,
@@ -107,7 +118,8 @@ profileOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
         ..width = NA,
         ..height = NA,
         ..width1 = NA,
-        ..height1 = NA)
+        ..height1 = NA,
+        ..color = NA)
 )
 
 profileResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
@@ -157,7 +169,8 @@ profileResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                     "group",
                     "angle",
                     "width",
-                    "height")))
+                    "height",
+                    "color")))
             self$add(jmvcore::Image$new(
                 options=options,
                 name="plot2",
@@ -169,7 +182,8 @@ profileResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                     "group",
                     "angle",
                     "width1",
-                    "height1")))}))
+                    "height1",
+                    "color")))}))
 
 profileBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
     "profileBase",
@@ -207,6 +221,7 @@ profileBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
 #' @param height .
 #' @param width1 .
 #' @param height1 .
+#' @param color .
 #' @return A results object containing:
 #' \tabular{llllll}{
 #'   \code{results$instructions} \tab \tab \tab \tab \tab a html \cr
@@ -233,7 +248,8 @@ profile <- function(
     width = 500,
     height = 500,
     width1 = 500,
-    height1 = 500) {
+    height1 = 500,
+    color) {
 
     if ( ! requireNamespace("jmvcore", quietly=TRUE))
         stop("profile requires jmvcore to be installed (restart may be required)")
@@ -258,7 +274,8 @@ profile <- function(
         width = width,
         height = height,
         width1 = width1,
-        height1 = height1)
+        height1 = height1,
+        color = color)
 
     analysis <- profileClass$new(
         options = options,
