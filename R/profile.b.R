@@ -205,8 +205,6 @@ profileClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Class(
             ggplot2::labs(color = "Group")+
             ggtheme
             
-            
-            
             if (self$options$angle > 0) {
               plot1 <- plot1 + ggplot2::theme(
                 axis.text.x = ggplot2::element_text(
@@ -214,9 +212,10 @@ profileClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Class(
                 )
               )
             }
+         
+          plot1 <- plot1 + ggplot2::scale_color_brewer(palette = self$options$color)
             
-          plot <- plot + ggplot2::scale_fill_brewer(palette = self$options$color)
-            print(plot1)
+          print(plot1)
             TRUE
           
         },
@@ -251,7 +250,7 @@ profileClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Class(
             )
           }
           
-          plot <- plot + ggplot2::scale_fill_brewer(palette = self$options$color)
+          plot2 <- plot2 + ggplot2::scale_color_brewer(palette = self$options$color)
           print(plot2)
           TRUE
         }
