@@ -27,6 +27,10 @@ children:
     children:
       - type: LayoutBox
         margin: large
+        cell:
+          column: 0
+          row: 0
+        stretchFactor: 1
         children:
           - type: Label
             label: Plot
@@ -50,3 +54,15 @@ children:
                   - value: 0
                   - value: 45
                   - value: 90
+      - type: LayoutBox
+        margin: large
+        cell:
+          column: 1
+          row: 0
+        stretchFactor: 1
+        children:
+          - type: Label
+            label: Option
+            children:
+              - type: ComboBox
+                name: color
