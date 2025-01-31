@@ -144,7 +144,6 @@ wordClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Class(
                                   random.order = FALSE,
                                   colors=colors)
         
-        #plot <- plot + ggplot2::scale_color_brewer(palette = self$options$color)
         print(plot)
         TRUE
       },
@@ -194,7 +193,6 @@ wordClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Class(
         )
       }
       
-      #plot1 <- plot1 + ggplot2::scale_color_brewer(palette = self$options$color)
       print(plot1)
       TRUE  
     }
