@@ -15,8 +15,7 @@ profile(
   width = 500,
   height = 500,
   width1 = 500,
-  height1 = 500,
-  color
+  height1 = 500
 )
 }
 \arguments{
@@ -42,8 +41,6 @@ where 0 degrees represents completely horizontal labels.}
 \item{width1}{.}
 
 \item{height1}{.}
-
-\item{color}{.}
 }
 \value{
 A results object containing:

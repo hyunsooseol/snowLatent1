@@ -37,11 +37,6 @@ children:
             children:
               - type: CheckBox
                 name: mc
-          - type: Label
-            label: 'Option'
-            children:
-              - type: ComboBox
-                name: color
       - type: LayoutBox
         margin: large
         cell:

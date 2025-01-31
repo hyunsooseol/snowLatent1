@@ -36,7 +36,6 @@ items:
             - angle
             - width
             - height
-            - color
 
     - name: plot2
       title: 'Box plot'
@@ -49,5 +48,4 @@ items:
             - angle
             - width1
             - height1
-            - color
 ...

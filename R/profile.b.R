@@ -215,7 +215,6 @@ profileClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Class(
               )
             }
             
-          plot <- plot + ggplot2::scale_fill_brewer(palette = self$options$color)
             print(plot1)
             TRUE
           
@@ -251,7 +250,6 @@ profileClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Class(
             )
           }
           
-          plot <- plot + ggplot2::scale_fill_brewer(palette = self$options$color)
           print(plot2)
           TRUE
         }
