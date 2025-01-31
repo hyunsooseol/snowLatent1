@@ -11,8 +11,7 @@ rainOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             angle = 0,
             plot = FALSE,
             width = 500,
-            height = 500,
-            color = NULL, ...) {
+            height = 500, ...) {
 
             super$initialize(
                 package="snowLatent",
@@ -55,14 +54,6 @@ rainOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 "height",
                 height,
                 default=500)
-            private$..color <- jmvcore::OptionList$new(
-                "color",
-                color,
-                options=list(
-                    "jmv",
-                    "Dark2",
-                    "Set1",
-                    "Accent"))
 
             self$.addOption(private$..vars)
             self$.addOption(private$..group)
@@ -70,7 +61,6 @@ rainOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             self$.addOption(private$..plot)
             self$.addOption(private$..width)
             self$.addOption(private$..height)
-            self$.addOption(private$..color)
         }),
     active = list(
         vars = function() private$..vars$value,
@@ -78,16 +68,14 @@ rainOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
         angle = function() private$..angle$value,
         plot = function() private$..plot$value,
         width = function() private$..width$value,
-        height = function() private$..height$value,
-        color = function() private$..color$value),
+        height = function() private$..height$value),
     private = list(
         ..vars = NA,
         ..group = NA,
         ..angle = NA,
         ..plot = NA,
         ..width = NA,
-        ..height = NA,
-        ..color = NA)
+        ..height = NA)
 )
 
 rainResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
@@ -125,8 +113,7 @@ rainResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                     "group",
                     "angle",
                     "width",
-                    "height",
-                    "color")))}))
+                    "height")))}))
 
 rainBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
     "rainBase",
@@ -160,7 +147,6 @@ rainBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
 #' @param plot .
 #' @param width .
 #' @param height .
-#' @param color .
 #' @return A results object containing:
 #' \tabular{llllll}{
 #'   \code{results$instructions} \tab \tab \tab \tab \tab a html \cr
@@ -176,8 +162,7 @@ rain <- function(
     angle = 0,
     plot = FALSE,
     width = 500,
-    height = 500,
-    color) {
+    height = 500) {
 
     if ( ! requireNamespace("jmvcore", quietly=TRUE))
         stop("rain requires jmvcore to be installed (restart may be required)")
@@ -198,8 +183,7 @@ rain <- function(
         angle = angle,
         plot = plot,
         width = width,
-        height = height,
-        color = color)
+        height = height)
 
     analysis <- rainClass$new(
         options = options,

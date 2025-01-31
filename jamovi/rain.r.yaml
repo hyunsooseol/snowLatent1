@@ -25,7 +25,6 @@ items:
             - angle
             - width
             - height
-            - color
 
     # - name: plot2
     #   title: 'Box plot'

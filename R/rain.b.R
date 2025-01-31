@@ -218,9 +218,6 @@ rainClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Class(
           )
         }
         
-        plot <- plot + ggtheme
-        plot <- plot + scale_fill_brewer(palette = self$options$color)
-       
         print(plot)
         TRUE
       }
