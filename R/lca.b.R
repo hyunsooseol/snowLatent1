@@ -35,6 +35,7 @@ lcaClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Class(
               '<div style="text-align:justify;">',
               '<ul>',
               '<li>Latent Class Analysis(LCA) based on <b>glca</b> R package.</li>',
+              '<li>The MAR(Missing at Random) method is applied to handle missing values.</li>',
               '<li>The result table does not printed if the results from glca R package are not available.</li>',
               '<li>Feature requests and bug reports can be made on my <a href="https://github.com/hyunsooseol/snowLatent/issues" target="_blank">GitHub</a>.</li>',
               '</ul></div></div>'
@@ -685,9 +686,11 @@ if (length(covs) >= 1) {
        attr(data, 'row.names') <- seq_len(length(data[[1]]))
        attr(data, 'class') <- 'data.frame'
        
-       if( !is.null(self$options$covs))
-         for (cov in self$options$covs)
-           data <- data[!is.na(data[[cov]]), ]
+       # MAR to handle missing values---
+       
+       # if( !is.null(self$options$covs))
+       #   for (cov in self$options$covs)
+       #     data <- data[!is.na(data[[cov]]), ]
        
        return(data)
      },
