@@ -12,11 +12,7 @@ RoxygenNote: 7.3.2
 Imports: jmvcore (>= 0.8.5), 
          R6,
          stats,
-         ggplot2,
-         stringr,
-         reshape2,
          fmsb,
-         scales,
-         wordcloud,
-         RColorBrewer,
-         dplyr
+         wordcloud
+        
+        
